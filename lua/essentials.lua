@@ -2,6 +2,7 @@ local option = vim.opt
 local buffer = vim.b
 local global = vim.g
 
+global.encoding = 'UTF-8'
 -- 系统剪贴板
 option.clipboard:append("unnamedplus")
 -- Globol Settings --
@@ -34,7 +35,7 @@ option.mouse = "a"
 option.exrc = true
 option.wrap = false
 option.splitright = true
-
+option.scrolloff = 8
 -- Buffer Settings --
 buffer.fileenconding = "utf-8"
 
@@ -58,3 +59,13 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- vim.keymap.set('n', '<C-e>', ':NvimTreeToggle<CR>')
 vim.keymap.set({ "n", "v" }, "<C-e>", [[<cmd>Neotree toggle<CR>]])
 -- vim.keymap.set({ "v", "n" }, "<leader>y", "\"+y")
+vim.keymap.set('n', '<C-h>', [[<cmd>BufferLineCyclePrev<CR>]])
+vim.keymap.set('n', '<C-l>', [[<cmd>BufferLineCycleNext<CR>]])
+-- 分屏
+vim.keymap.set('n', 'sv', [[<cmd>vsp<CR>]])
+vim.keymap.set('n', 'sh', [[<cmd>sp<CR>]])
+-- 分屏窗口跳转
+vim.keymap.set('n', '<A-h>', '<C-w>h')
+vim.keymap.set('n', '<A-j>', '<C-w>j')
+vim.keymap.set('n', '<A-k>', '<C-w>k')
+vim.keymap.set('n', '<A-l>', '<C-w>l')
