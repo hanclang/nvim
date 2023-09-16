@@ -71,12 +71,36 @@ return {
     "nvim-neo-tree/neo-tree.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",       -- not strictly required, but recommended
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
     },
     config = function()
-      require("neo-tree").setup()
-      vim.keymap.set({ "n", "v" }, "<C-e>", [[<cmd>Neotree toggle<CR>]])
+      require("neo-tree").setup({
+        default_component_configs = {
+          indent = { padding = 0 },
+          icon = {
+            folder_closed = "",
+            folder_open = "",
+            folder_empty = "",
+            folder_empty_open = "",
+            default = "󰈙",
+          },
+          modified = { symbol = "" },
+          git_status = {
+            symbols = {
+              added = "",
+              deleted = "",
+              modified = "",
+              renamed = "➜",
+              untracked = "★",
+              ignored = "◌",
+              unstaged = "✗",
+              staged = "✓",
+              conflict = "",
+            },
+          },
+        },
+      })
     end
   },
   {
@@ -126,4 +150,5 @@ return {
       )
     end
   },
+  {'akinsho/toggleterm.nvim', version = "*", config = true},
 }
