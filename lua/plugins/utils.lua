@@ -1,12 +1,5 @@
 return {
   {
-    "rhysd/accelerated-jk",
-    config = function()
-      vim.keymap.set("n", "j", "<Plug>(accelerated_jk_gj)")
-      vim.keymap.set("n", "k", "<Plug>(accelerated_jk_gk)")
-    end,
-  },
-  {
     "folke/persistence.nvim",
     config = function()
       require("persistence").setup()
@@ -183,19 +176,19 @@ return {
         --
         -- default: true
         -- with_text = true,
-    
+
         -- defines how annotations are shown
         -- default: symbol
         -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
         mode = 'symbol_text',
-    
+
         -- default symbol map
         -- can be either 'default' (requires nerd-fonts font) or
         -- 'codicons' for codicon preset (requires vscode-codicons font)
         --
         -- default: 'default'
         -- preset = 'codicons',
-    
+
         -- override preset symbols
         --
         -- default: {}
@@ -226,7 +219,7 @@ return {
           Operator = "󰆕",
           TypeParameter = "",
         },
-    })
+      })
     end
   },
 }
